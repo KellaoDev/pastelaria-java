@@ -1,0 +1,135 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/pedidos/cadastrarPedidos.css">
+    <link rel="icon" href="./favicon/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Pedido de Pastel</h1>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/pedidos/cadastrar}" th:method="post" th:object="${pastel}"
+                          onsubmit="return validarFormulario()">
+                        <div class="form-group">
+                            <label class="uppercase">Tipos de Massa:</label>
+                            <input type="checkbox" name="normal" id="normalCheckbox" data-valor-adicionado="false"
+                                   onchange="atualizarPrecoMassas(this)">
+                            <label>Normal</label>
+                            <input type="checkbox" name="picante" id="picanteCheckbox" th:field="*{picante}"
+                                   data-valor-adicionado="false" onchange="atualizarPrecoMassas(this)">
+                            <label>Picante</label>
+                        </div>
+                        <fieldset class="form-group">
+                            <label class="uppercase">Recheios:</label>
+                            <fieldset>
+                                <div class="spacing">
+                                    <div>
+                                        <input type="checkbox" name="carneSeca" th:field="*{recheios.carneSeca}"
+                                               data-valor-adicionado="false" onchange="atualizarPrecoCarnes(this)">
+                                        <label>Carne seca</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="frango" id="frango" th:field="*{recheios.frango}"
+                                               data-valor-adicionado="false" onchange="atualizarPrecoCarnes(this)">
+                                        <label>Frango</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="bacon" th:field="*{recheios.bacon}"
+                                               data-valor-adicionado="false" onchange="atualizarPreco(this)">
+                                        <label>Bacon</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="mussarela" th:field="*{recheios.mussarela}"
+                                               data-valor-adicionado="false" onchange="atualizarPreco(this)">
+                                        <label>Mussarela</label>
+                                    </div>
+                                </div>
+
+                                <div class="spacing">
+                                    <div>
+                                        <input type="checkbox" name="queijo" th:field="*{recheios.queijo}"
+                                               data-valor-adicionado="false" onchange="atualizarPreco(this)">
+                                        <label>Queijo</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="presunto" th:field="*{recheios.presunto}"
+                                               data-valor-adicionado="false" onchange="atualizarPreco(this)">
+                                        <label>Presunto</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="cheddar" th:field="*{recheios.cheddar}"
+                                               data-valor-adicionado="false" onchange="atualizarPreco(this)">
+                                        <label>Catupiry</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="azeitona" th:field="*{recheios.azeitona}"
+                                               data-valor-adicionado="false" onchange="atualizarPreco(this)">
+                                        <label>Cheddar</label>
+                                    </div>
+                                </div>
+                                <div class="spacing">
+                                    <div>
+                                        <input type="checkbox" name="catupiry" th:field="*{recheios.catupiry}"
+                                               data-valor-adicionado="false" onchange="atualizarPreco(this)">
+                                        <label>Azeitona</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="palmito" th:field="*{recheios.palmito}"
+                                               data-valor-adicionado="false" onchange="atualizarPreco(this)">
+                                        <label>Palmito</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="barbecue" th:field="*{recheios.barbecue}"
+                                               data-valor-adicionado="false" onchange="atualizarPreco(this)">
+                                        <label>Barbecue</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="pepperoni" th:field="*{recheios.pepperoni}"
+                                               data-valor-adicionado="false" onchange="atualizarPreco(this)">
+                                        <label>Pepperoni</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="form-group">
+                                <label class="uppercase">Preço:</label>
+                                <input type="number" id="preco" name="preco" th:field="*{preco}" value="0.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="nome">Obevações</label><!--th:field="*{pasteis.observacao}"-->
+                                <input type="text" class="form-control" id="nome"
+                                       placeholder="Ex: sem cebola, muito molho" name="observacao">
+                            </div>
+                            <div id="mensagemErro"></div>
+                        </fieldset>
+
+                        <a th:href="@{/menu}" class="btn btn-warning btn-lg">Voltar</a>
+                        <button type="submit" class="btn btn-warning btn-lg">Enviar Pedido</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/js/pedidos.js"></script>
+
+
+</body>
+
+</html>

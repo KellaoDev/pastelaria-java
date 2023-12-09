@@ -1,0 +1,65 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Pedidos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/pedidos/listarPedidos.css">
+    <link rel="icon" href="./favicon/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card-group">
+        <div class="col-md-6 offset-md-3">
+
+            <div class="card">
+                <div class="card-header">
+                    <h1>Pedidos</h1>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped table-bordered table-hover table-responsive"
+                           th:if="${pedidos} != null">
+                        <thead>
+                        <tr>
+                            <th scope="col">Nº Pedido</th>
+                            <th scope="col">Massa</th>
+                            <th scope="col">Observações</th>
+                            <th scope="col">Editar</th>
+                            <th scope="col">Excluir</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="pedido: ${pedidos}">
+                            <td><span th:text="${pedido.getId()}"></span></td>
+                            <td><span th:text="${pedido.getPastel().getPicante() == true} ? 'Picante': 'Normal'"></span>
+                            </td>
+                            <td><span th:text="${pedido.getPastel().getObservacao()}"></span></td>
+                            <td><a th:href="'/pedidos/editar/' + ${pedido.getId()}" class="btn btn-warning"><img
+                                    src="https://img.icons8.com/fluency-systems-regular/48/edit--v1.png"
+                                    alt="edit--v1"/></a></td>
+                            <td><a th:href="'/pedidos/excluir/' + ${pedido.getId()}" class="btn btn-danger"><img
+                                    src="https://img.icons8.com/fluency-systems-regular/48/delete--v1.png"
+                                    alt="delete--v1"/></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <a th:href="@{/menu}" class="btn btn-warning btn-lg">Voltar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+</body>
+
+</html>

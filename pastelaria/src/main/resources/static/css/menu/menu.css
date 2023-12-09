@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.card {
+    margin-top: 150px;
+    padding-top: 20px;
+    border: 1px solid black;
+}
+
+.header {
+    text-align: center;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+}
+
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Poppins', Arial, Calibri, sans-serif;
+    background-image: url("/imagens/wallpaperMenu.jpg");
+}
+
+h1 {
+    text-align: center;
+}

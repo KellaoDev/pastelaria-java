@@ -1,0 +1,74 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionários</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/usuarios/cadastrarFuncionarios.css">
+    <link rel="icon" href="./favicon/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Cadastro</h2>
+                    <h2>de</h2>
+                    <h2>Funcionário</h2>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/usuarios/cadastrar}" th:method="post" th:object="${usuario}">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" class="form-control" id="name" placeholder="Informe o nome"
+                                   required="required"
+                                   th:field="*{nome}">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">CPF</label>
+                            <input type="text" class="form-control" id="cpf" placeholder="Informe o CPF"
+                                   required="required"
+                                   th:field="*{cpf}" th:maxlength="14" oninput="formatarCPF(this)">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Senha</label>
+                            <input type="password" class="form-control" id="password" placeholder="Informe a senha"
+                                   required="required"
+                                   th:field="*{senha}">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" class="form-control" id="telefone" placeholder="Informe o telefone"
+                                   required="required"
+                                   th:field="*{telefone}" th:maxlength="15" oninput="formatarTelefone(this)">
+                        </div>
+                        <a th:href="@{/menu}" class="btn btn-warning btn-lg">Voltar</a>
+                        <button type="submit" class="btn btn-warning btn-lg">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="/js/funcionarios.js"></script>
+<script src="/js/index.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+

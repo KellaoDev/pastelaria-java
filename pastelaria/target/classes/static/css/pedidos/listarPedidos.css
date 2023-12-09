@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+td {
+    text-align: center;
+}
+
+.card {
+    margin-top: 15%;
+    border: 1px solid black;
+}
+
+img {
+    width: 22px;
+    height: 22px;
+}
+
+
+.card-header {
+    text-align: center;
+    background-color: #FFAA4D;
+}
+
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Poppins', Arial, Calibri, sans-serif;
+    background-image: url("/imagens/wallpaperTools.jpg");
+}

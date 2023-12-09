@@ -1,0 +1,62 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Funcionarios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/usuarios/cadastrarFuncionarios.css">
+    <link rel="icon" href="./favicon/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="header">
+                    <h1>Alteração</h1>
+                    <h1>de</h1>
+                    <h1>Funcionário</h1>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/usuarios/editar}" th:method="post" th:object="${usuario}" name="usuario">
+                        <input type="hidden" th:field="*{id}" name="id">
+                        <div class="form-group">
+                            <label for="name">Usuário</label>
+                            <input type="text" class="form-control" id="name" placeholder="Informe o usuário"
+                                   th:field="*{nome}">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Senha</label>
+                            <input type="password" class="form-control" id="password" placeholder="Informe a senha"
+                                   th:field="*{senha}">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" class="form-control" id="telefone" placeholder="Informe o telefone"
+                                   th:field="*{telefone}">
+                        </div>
+                        <button type="submit" class="btn btn-danger btn-lg">Salvar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+

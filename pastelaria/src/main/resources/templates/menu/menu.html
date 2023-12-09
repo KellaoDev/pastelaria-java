@@ -1,0 +1,65 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/menu/menu.css">
+    <link rel="icon" href="./favicon/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="header">
+                    <h1>Menu</h1>
+                </div>
+                <div class="card-body">
+                    <a class="btn-block btn btn-warning" th:href="@{/pedidos/exibirCadastro}">
+                        <img src="https://img.icons8.com/pulsar-line/48/add-bookmark.png"
+                             alt="add-bookmark"/>
+                        Pedidos
+                    </a>
+                    <a class="btn-block btn btn-warning" th:href="@{/pedidos/listarPedidos}">
+                        <img src="https://img.icons8.com/glyph-neue/64/purchase-order.png"
+                             alt="purchase-order"/>
+                        Listar Pedidos
+                    </a>
+                    <a class="btn-block btn btn-warning" th:href="@{/usuarios/exibirCadastro}">
+                        <img src="https://img.icons8.com/ios-glyphs/30/user--v1.png"
+                             alt="user--v1"/>
+                        Funcionários
+                    </a>
+                    <a class="btn-block btn btn-warning" th:href="@{/usuarios/listarFuncionarios}">
+                        <img src="https://img.icons8.com/metro/26/user-group-man-man.png"
+                             alt="user-group-man-man    "/>
+                        Listar Funcionários
+                    </a>
+                    <a class="btn-block btn btn-warning" th:href="@{/caixa}">
+                        <img src="https://img.icons8.com/windows/32/money-bill-wave.png"
+                             alt="money-bill-wave"/>
+                        Caixa
+                    </a>
+
+                    <a class="btn-block btn btn-warning" th:href="@{/logout}">
+                        <img width="26" height="26" src="https://img.icons8.com/metro/26/exit.png"
+                             alt="exit"/>
+                        Sair
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
